@@ -1,6 +1,6 @@
 ﻿using System.Transactions;
 
-namespace TypeParametersAndGenerics
+namespace TypeParametersAndGenerics.SuperheroClasses
 {
     public class Superhero
     {

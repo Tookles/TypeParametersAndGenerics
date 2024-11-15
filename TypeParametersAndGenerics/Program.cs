@@ -1,6 +1,10 @@
-﻿namespace TypeParametersAndGenerics
+﻿using TypeParametersAndGenerics.MissionClasses;
+using TypeParametersAndGenerics.SuperheroClasses;
+using TypeParametersAndGenerics.SuperheroInterfaces;
+
+namespace TypeParametersAndGenerics
 {
-    internal partial class Program
+    internal class Program
     {
         public static T GetLastList<T>(T[] inputArray)
         {
@@ -11,35 +15,26 @@
         static void Main(string[] args)
         {
 
-            //int[] intArray = { 1, 5, 2, 8, 6 };
-            //Console.WriteLine(GetLastList(intArray)); // 6
+            //var strandedCat = new RescueMission<IFly>("tree", 50);
+            //var bugInMyCode = new RescueMission<ITech>("zoom", 1000);
+            //var armWrestlingCompetition = new CombatMission<IStrength>("beach", 20);
 
-            //double[] doubleArray = { 10.5, 60.5, 2.2, 8.76, 6.1111 };
-            //Console.WriteLine(GetLastList(doubleArray)); // 6.1111
+            //var reyzhen = new Mystic("FlyGirl", "John", 30, Alignment.GOOD, 2.4, 8000.0, 5); 
+            //strandedCat.HeroesDeployed.Add(reyzhen); // All good
 
-            //string[] stringArray = { "hello", "world", "it's", "northcoders!" };
-            //Console.WriteLine(GetLastList(stringArray)); // "northcoders"
+            //var rick = new Gadgeteer("GadgetMan", "Rick", 33, Alignment.EVIL, "iPhone", 7000);
 
-            //Stack<string> myStack = new Stack<string>();
-            //myStack.Push("hello");
-            //myStack.Push("world");
-            //myStack.Push("today");
+            //strandedCat.HeroesDeployed.Add(rick); // Should provide a compile time error
 
-            ////myStack.Pop();
-            //Console.WriteLine(myStack.Count);
-            //foreach (string item in myStack)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            //var reyzhen = new Mystic("FlyGirl", "John", 30, Alignment.GOOD, 2.4, 8000.0, 5);
+            //var rich = new Gadgeteer("GadgetMan", "Rick", 33, Alignment.EVIL, "iPhone", 7000);
 
+            //var survey1 = new ReconMission<Gadgeteer>("Leeds", 300); // Should provide an error
 
-            var myBooks = new CustomStack<string>();
+            //var survey2 = new ReconMission<Mystic>("Manchester", 300);
 
-            myBooks.Push("Book 1");
-            myBooks.Push("Book 2");
-            myBooks.Push("Book 3");
-
-            Console.WriteLine(myBooks.Pop()); // Book 3
+            //survey2.HeroesDeployed.Add(reyzhen); // All good
+            //survey2.HeroesDeployed.Add(rich); // Should provide an error
 
         }
     }
