@@ -1,11 +1,13 @@
-﻿using System.Xml;
+﻿using System.Collections;
+using System.Xml;
 
 namespace TypeParametersAndGenerics
 {
   
-    public class CustomStack<T> 
+    public class CustomStack<T> : IEnumerable<T>
      {
         private T[] items = Array.Empty<T>();
+
 
         public T Pop()
         {
@@ -31,6 +33,17 @@ namespace TypeParametersAndGenerics
             tempArray[^1] = itemToAdd;
             items = tempArray;
         }
-     }
-    
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (T item in items)
+            {
+                yield return item;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+    }
 }

@@ -36,6 +36,21 @@ namespace TypeParametersAndGenerics
             //survey2.HeroesDeployed.Add(reyzhen); // All good
             //survey2.HeroesDeployed.Add(rich); // Should provide an error
 
+            var myBooks = new CustomStack<string>();
+
+            myBooks.Push("Book 1");
+            myBooks.Push("Book 2");
+            myBooks.Push("Book 3");
+
+            Console.WriteLine(myBooks.Pop()); // Book 3
+            //Console.WriteLine(myBooks.Count());
+
+            foreach (var book in myBooks) 
+            {
+                Console.WriteLine(book);
+            }
+            myBooks.Count();
+
         }
     }
 }
