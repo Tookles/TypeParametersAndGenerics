@@ -1,6 +1,6 @@
 ﻿namespace TypeParametersAndGenerics
 {
-    internal class Program
+    internal partial class Program
     {
         public static T GetLastList<T>(T[] inputArray)
         {
@@ -20,20 +20,26 @@
             //string[] stringArray = { "hello", "world", "it's", "northcoders!" };
             //Console.WriteLine(GetLastList(stringArray)); // "northcoders"
 
-            Stack<string> myStack = new Stack<string>();
-            myStack.Push("hello");
-            myStack.Push("world");
-            myStack.Push("today");
+            //Stack<string> myStack = new Stack<string>();
+            //myStack.Push("hello");
+            //myStack.Push("world");
+            //myStack.Push("today");
 
-            //myStack.Pop();
-            Console.WriteLine(myStack.Count);
-            foreach (string item in myStack)
-            {
-                Console.WriteLine(item);
-            }
+            ////myStack.Pop();
+            //Console.WriteLine(myStack.Count);
+            //foreach (string item in myStack)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
 
+            var myBooks = new CustomStack<string>();
 
+            myBooks.Push("Book 1");
+            myBooks.Push("Book 2");
+            myBooks.Push("Book 3");
+
+            Console.WriteLine(myBooks.Pop()); // Book 3
 
         }
     }
