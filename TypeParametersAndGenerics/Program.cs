@@ -26,30 +26,42 @@ namespace TypeParametersAndGenerics
 
             //strandedCat.HeroesDeployed.Add(rick); // Should provide a compile time error
 
-            //var reyzhen = new Mystic("FlyGirl", "John", 30, Alignment.GOOD, 2.4, 8000.0, 5);
-            //var rich = new Gadgeteer("GadgetMan", "Rick", 33, Alignment.EVIL, "iPhone", 7000);
+            var reyzhen = new Mystic("FlyGirl", "John", 30, Alignment.GOOD, 2.4, 8000.0, 5);
+            var rich = new Gadgeteer("GadgetMan", "Rick", 33, Alignment.EVIL, "iPhone", 7000);
 
             //var survey1 = new ReconMission<Gadgeteer>("Leeds", 300); // Should provide an error
 
-            //var survey2 = new ReconMission<Mystic>("Manchester", 300);
+            var survey2 = new ReconMission<Mystic>("Manchester", 300);
 
-            //survey2.HeroesDeployed.Add(reyzhen); // All good
+            survey2.HeroesDeployed.Add(reyzhen); // All good
             //survey2.HeroesDeployed.Add(rich); // Should provide an error
 
-            var myBooks = new CustomStack<string>();
+            SuperheroAgency myAgency = new SuperheroAgency();
+            myAgency.AllSuperheroes.Add(reyzhen);
+            myAgency.AllSuperheroes.Add(rich);
 
-            myBooks.Push("Book 1");
-            myBooks.Push("Book 2");
-            myBooks.Push("Book 3");
+            List<Superhero> myTest = myAgency.GetHeroes<IFly>();
 
-            Console.WriteLine(myBooks.Pop()); // Book 3
-            //Console.WriteLine(myBooks.Count());
-
-            foreach (var book in myBooks) 
+            foreach (Superhero fly in myTest)
             {
-                Console.WriteLine(book);
+                var anotherTest = (IFly)fly;
+                anotherTest.Fly(fly.Alias); 
             }
-            myBooks.Count();
+
+            //var myBooks = new CustomStack<string>();
+
+            //myBooks.Push("Book 1");
+            //myBooks.Push("Book 2");
+            //myBooks.Push("Book 3");
+
+            //Console.WriteLine(myBooks.Pop()); // Book 3
+            ////Console.WriteLine(myBooks.Count());
+
+            //foreach (var book in myBooks) 
+            //{
+            //    Console.WriteLine(book);
+            //}
+            //myBooks.Count();
 
         }
     }
